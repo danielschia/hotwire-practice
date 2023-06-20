@@ -1,0 +1,25 @@
+<h1>Page 1</h1>
+
+<div data-controller="colors"
+      data-colors-reset-class="bg-white border-red-500"
+      data-colors-success-message-value="<%= @success_message %>"
+      data-colors-reset-message-value="<%= @reset_message %>">
+  <input type="text"
+          autocomplete="off"
+          placeholder="Type an HTML color"
+          data-colors-target="input">
+  <button class="bg-gray-200 border border-gray-500 rounded p-2"
+          data-action="colors#colorizeCard">
+    Color it!
+  </button>
+   <button class="bg-gray-200 border border-gray-500 rounded p-2"
+          data-action="colors#resetCard">
+    Reset
+  </button>
+  <div class="border border-black w-32 h-32 rounded mt-5"
+       data-colors-target="card">
+  </div>
+
+  <p class="mt-2 text-sm"
+     data-colors-target="message">Color not changed</p>
+</div>

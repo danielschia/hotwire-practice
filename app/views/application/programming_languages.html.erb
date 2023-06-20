@@ -1,0 +1,35 @@
+<h1>Programming Languages</h1>
+
+<%= turbo_stream_from :stream_test %>
+
+<h2 class="text-x1 py-3">
+  Total: <span class="counter"><%= @programming_languages.count %></span>
+</h2>
+
+<table>
+  <thead>
+    <th class="border p-2 text-center">Name</th>
+    <th class="border p-2 text-center">Release Date</th>
+  </thead>
+  <tbody id="languages-list">
+    <%= render @programming_languages %>
+  </tbody>
+</table>
+
+<p class="pt-3 text-sm">
+  There are: <span class="counter"><%= @programming_languages.count %></span> programming languages.
+</p>
+
+<h2 class="text-x1 mt-10">Add a new language</h2>
+
+<%= form_with model: @programming_language, url: programming_language_path do |form| %>
+  <div class="my-5">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="my-5">
+    <%= form.label :release_date %>
+    <%= form.text_field :release_date %>
+  </div>
+  <%= form.submit 'Add', class: "border border-black p-2 cursor-pointer" %>
+<% end %>
